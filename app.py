@@ -57,7 +57,7 @@ def upload():
         f.save(file_path)
         image=process_image(file_path)
         tempr=random.randint(50,101)
-        fire = model.predict(image)
+        fire = model.predict(file_path)
         print(fire)
         if fire:
             if tempr>70: 
@@ -68,17 +68,6 @@ def upload():
             prediction = 'no fire'
 
         return prediction
-        # classifier = load_model('classifier.h5')
-        # test_image = image.load_img(file_path, target_size = (64, 64))
-        # test_image = image.img_to_array(test_image)
-        # test_image = np.expand_dims(test_image, axis = 0)
-        # result = classifier.predict(test_image)
-        # #training_set.class_indices
-        # if result[0][0] == 1:
-        #     prediction = 'notfire'
-        # else:
-        #     prediction = 'fire'
-        # return prediction 
   
     return None
 
